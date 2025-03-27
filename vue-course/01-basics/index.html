@@ -7,18 +7,17 @@
     <link rel="stylesheet" href="theme.css" />
   </head>
   <body>
-    <div class="container pt-5">
+    <div class="container pt-5" id="app">
       <div class="card center">
-        <h1>Счетчик: 0</h1>
+        <h1>{{title}} {{counter}}</h1>
         <div>
-          <button class="btn primary">+</button>
-          <button class="btn danger">-</button>
+          <button class="btn primary" v-on:click="counter++">+</button>
+          <button class="btn danger" v-on:click="counter-1">-</button>
         </div>
       </div>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="
-    "></script>
+    <script src="app.js"></script>
   </body>
 </html>
