@@ -1,9 +1,28 @@
 const App = {
   data() {
     return {
-      counter: 0,
-      title: "Counter",
+      placeholderString: "add note",
+      title: "List of notes",
+      inputValue: "",
+      notes: ["note 1", "note 2"],
     };
+  },
+  methods: {
+    inputChangeHandler(event) {
+      this.inputValue = event.target.value;
+    },
+    addNewNote() {
+      this.notes.push(this.inputValue);
+      this.inputValue = "";
+    },
+    // inputKeyPress(event) {
+    //   if (event.key === "Enter") {
+    //     this.addNewNote();
+    //   }
+    // },
+    removeNote(index) {
+      this.notes.splice(index, 1);
+    },
   },
 };
 

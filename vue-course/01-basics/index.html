@@ -7,13 +7,34 @@
     <link rel="stylesheet" href="theme.css" />
   </head>
   <body>
-    <div class="container pt-5" id="app">
-      <div class="card center">
-        <h1>{{title}} {{counter}}</h1>
-        <div>
-          <button class="btn primary" v-on:click="counter++">+</button>
-          <button class="btn danger" v-on:click="counter-1">-</button>
+    <div class="container" id="app">
+      <div class="card">
+        <h1>{{title}}</h1>
+        <div class="form-control">
+          <input
+            type="text"
+            v-bind:placeholder="placeholderString"
+            v-bind:value="inputValue"
+            v-on:input="inputChangeHandler"
+            v-on:keypress.enter="addNewNote"
+          />
         </div>
+        <h2>inputValue: {{inputValue}}</h2>
+        <button class="btn" v-on:click="addNewNote">Add</button>
+        <hr />
+        <ul class="list" v-if="notes.length !== 0">
+          <li
+            class="list-item"
+            v-for="(note, index) in notes"
+            :key="note.index"
+          >
+            {{note}}
+            <button class="btn danger" v-on:click="removeNote(index)">
+              Delete
+            </button>
+          </li>
+        </ul>
+        <div v-if="notes.length === 0">Add your firs note</div>
       </div>
     </div>
 
