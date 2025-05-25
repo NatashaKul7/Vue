@@ -22,11 +22,15 @@
 
         <button class="btn" @click="title='Now I am Ben'">Change name</button> -->
 
+        <div class="form-control">
+          <input type="text" @keyup.enter="addItem(event)" ref="myInput" />
+        </div>
+
         <ul class="list" v-if="items.length">
           <li
             class="list-item"
             v-for="(item, i) in items"
-            @click="items.splice(i, 1)"
+            @click="remove(i), log(item)"
             :key="item"
           >
             <strong>{{item}}</strong>&nbsp;
