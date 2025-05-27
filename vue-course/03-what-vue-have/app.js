@@ -11,31 +11,31 @@ const App = {
       this.title = "Изменили";
     },
   },
-  //   template: `
-  //     <div class="card center">
-  //       <h1>{{title}}</h1>
-  //       <button class="btn" @click="title = 'Изменили'">Change</button>
-  //     </div>
-  //   `,
-  render() {
-    return h(
-      "div",
-      {
-        class: "card center",
-      },
-      [
-        h("h1", {}, this.title),
-        h(
-          "button",
-          {
-            class: "btn",
-            onClick: this.changeTitle,
-          },
-          "Изменить"
-        ),
-      ]
-    );
-  },
+  template: `
+      <div class="card center">
+        <h1>{{title}}</h1>
+        <button class="btn" @click="title = 'Изменили'">Change</button>
+      </div>
+    `,
+  // render() {
+  //   return h(
+  //     "div",
+  //     {
+  //       class: "card center",
+  //     },
+  //     [
+  //       h("h1", {}, this.title),
+  //       h(
+  //         "button",
+  //         {
+  //           class: "btn",
+  //           onClick: this.changeTitle,
+  //         },
+  //         "Изменить"
+  //       ),
+  //     ]
+  //   );
+  // },
 };
 
 const app = Vue.createApp(App);
