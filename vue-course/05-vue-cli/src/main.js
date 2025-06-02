@@ -1,4 +1,11 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
+import TheHeader from "./components/TheHeader.vue";
+import "./theme.css";
 
-createApp(App).mount('#app')
+const app = createApp(App);
+
+// global registration
+app.component("the-header", TheHeader);
+
+app.mount("#app");
