@@ -52,6 +52,12 @@ export default {
     // "app-news": AppNews,
     AppNews: AppNews,
   },
+  provide() {
+    return {
+      title: "List of the news",
+      news: this.news,
+    };
+  },
   methods: {
     openNews() {
       this.openRate++;

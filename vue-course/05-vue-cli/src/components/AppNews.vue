@@ -13,13 +13,14 @@
       <app-button v-if="!wasRead" color="primary" @action="mark"
         >Read the new
       </app-button>
+      <app-news-list></app-news-list>
     </div>
   </div>
 </template>
 
 <script>
 import AppButton from "./AppButton.vue";
-
+import AppNewsList from "./AppNewsList.vue";
 export default {
   //   props: ["title"],
   emits: {
@@ -77,6 +78,6 @@ export default {
       this.$emit("unmark", this.id);
     },
   },
-  components: { AppButton },
+  components: { AppButton, AppNewsList },
 };
 </script>
