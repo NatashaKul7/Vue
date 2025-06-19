@@ -1,39 +1,57 @@
 <template>
   <div class="container pt-1">
     <div class="card">
-      <h2>Slots</h2>
+      <h2>Dynamic and async components</h2>
+
+      <app-button :color="oneColor" @action="active = 'one'">One</app-button>
+      <app-button :color="twoColor" @action="active = 'two'">Two</app-button>
     </div>
-    <app-list>
-      <template #default="slotProps">
-        <span style="color: orange">
-          <strong>{{ slotProps.idx }}</strong>
-          {{ slotProps.iter }}</span
-        >
-      </template>
-    </app-list>
+    <!-- 
+    <app-text-one v-if="active === 'one'"></app-text-one>
+    <app-text-two v-else-if="active === 'two'"></app-text-two> -->
 
-    <app-blog>
-      <p>This is text for the new blog</p>
-
-      <template v-slot:header>
-        <h3>This is Title</h3>
-      </template>
-
-      <template #footer>
-        <hr />
-        <small>This is footer</small>
-      </template>
-    </app-blog>
+    <keep-alive>
+      <component :is="componentName"></component>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import AppBlog from "./components/AppBlog.vue";
-import AppList from "./components/AppList.vue";
-
+import AppButton from "./components/AppButton.vue";
+import AppTextOne from "./components/AppTextOne.vue";
+import AppTextTwo from "./components/AppTextTwo.vue";
 export default {
-  components: { AppBlog, AppList },
+  data() {
+    return {
+      active: "one", // two
+    };
+  },
+  computed: {
+    // componentName() {
+    //   // if (this.active === "one") {
+    //   //   return "app-text-one";
+    //   // }
+    //   // return "app-text-two";
+
+    //   return "app-text-" + this.active;
+    // },
+    componentName: {
+      get() {
+        return "app-text-" + this.active;
+      },
+      set(value) {
+        console.log("componentName", value);
+      },
+    },
+    oneColor() {
+      return this.active === "one" ? "primary" : "";
+    },
+    twoColor() {
+      return this.active === "two" ? "primary" : "";
+    },
+  },
+  components: { AppButton, AppTextOne, AppTextTwo },
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped></style>
