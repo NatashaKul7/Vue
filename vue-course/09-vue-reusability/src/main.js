@@ -8,12 +8,14 @@ const app = createApp(App);
 const ua = {
   app: {
     title: "Як працюють плагіни у Vue",
+    changeBtn: "Змінити мову",
   },
 };
 
 const en = {
   app: {
     title: "How plugins work in Vue",
+    changeBtn: "Change language",
   },
 };
 

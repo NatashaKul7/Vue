@@ -4,7 +4,9 @@
       <h2>{{ $i18n("app.title") }}</h2>
       <button class="btn" @click="$alert('It is working')">Alert</button>
 
-      <button class="btn" @click="changeLang">Switch language</button>
+      <button class="btn" @click="changeLang">
+        {{ $i18n("app.changeBtn") }}
+      </button>
 
       <button class="btn primary" @click="modal = true">Open Modal</button>
 
